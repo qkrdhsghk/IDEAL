@@ -4,11 +4,11 @@ local Window = Rayfield:CreateWindow({
    Name = "IDEAL SCRIPT HUB",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Made by IDEAL TEAM",
-   LoadingSubtitle = "IDEAL 스크립트 허브 유료버전입니다.",
-   ShowText = "K키로 UI ON/OFF", -- for mobile users to unhide rayfield, change if you'd like
+   LoadingSubtitle = "IDEAL 스크립트 허브 STANDARD입니다.",
+   ShowText = "L키로 UI ON/OFF", -- for mobile users to unhide rayfield, change if you'd like
    Theme = "Bloom", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
-   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+   ToggleUIKeybind = "L", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
 
    DisableRayfieldPrompts = false,
    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
@@ -39,6 +39,14 @@ local Window = Rayfield:CreateWindow({
 
 local Tab = Window:CreateTab("🌍Universal", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("범용섹션")
+
+Rayfield:Notify({
+   Title = "알림",
+   Content = "IDEAL SCRIPT HUB STANDARD 실행됨",
+   Duration = 5,
+   Image = 4483362458,
+})
+
 local Slider = Tab:CreateSlider({
    Name = "SPEED",
    Range = {16, 48},
@@ -51,5 +59,24 @@ local Slider = Tab:CreateSlider({
       if player and player.Character and player.Character:FindFirstChild("Humanoid") then
          player.Character.Humanoid.WalkSpeed = Value
       end
+   end,
+})
+
+local Tab = Window:CreateTab("📜Scripts", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Octopus game")
+local Button = Tab:CreateButton({
+   Name = "Octopus game 스크립트",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+      loadstring(game:HttpGet("https://scriptblox.com/raw/KEYS-and-KNIVES-Octopus-Game-SQUID-GAME-octopus-games-script-undetectable-free-no-key-updated-43960"))()
+   end,
+})
+
+local Section = Tab:CreateSection("Phantom Forces")
+local Button = Tab:CreateButton({
+   Name = "PF 스크립트 1",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/dementiaenjoyer/homohack/refs/heads/main/pf_lite_rewrite_demo"))();
    end,
 })
